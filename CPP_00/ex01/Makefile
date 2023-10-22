@@ -13,7 +13,7 @@ $(NAME) : $(OBJ)
 	@c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :
-	@rm -rf $(NAME)
+	@rm -rf $(OBJ)
 	@echo "\033[1;31m Cleaning...\033[0;m"
 
 fclean : clean 
