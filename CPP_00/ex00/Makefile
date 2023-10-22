@@ -10,7 +10,7 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@echo "\033[1;32m Compiling...\033[0;m"
-	@$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME) 2> /dev/null
+	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME) 2> /dev/null
 
 clean:
 	@rm -rf $(OBJ)
