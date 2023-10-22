@@ -12,27 +12,34 @@
 # define BOLD "\033[1m"
 
 class Contact{
-    public:
+    private:
         std::string FirstName;
         std::string LastName;
         std::string Nickname;
         std::string PhoneNumber;
-        std::string DarkestSercret;
-        int			index;
-		Contact(){
-			index = 0;
-			this->FirstName = "";
-			this->LastName = "";
-			this->Nickname = "";
-			this->PhoneNumber = "";
-			this->DarkestSercret = "";
-		}
-		~Contact(){}
+        std::string DarkestSecret;
+	public:
+		std::string	GetFirstName() const;
+		std::string	GetLastName()const;
+		std::string	GetNickname()const;
+		std::string	GetPhoneNumber()const;
+		std::string	GetDarkestSecret()const;
+	
+	void		SetFirstName(std::string str);
+	void		SetLastName(std::string str);
+	void		SetNickname(std::string str);
+	void		SetPhoneNumber(std::string str);
+	void		SetDarkestSecret(std::string str);
+
 };
 
-class Phonebook{
-	public:
+class PhoneBook{
+	private:
 		Contact contacts[8];
+	public:
+		void AddContact();
+		void SearchContact();
+		void print();
 };
 
 #endif
