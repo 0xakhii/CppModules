@@ -22,7 +22,7 @@ void    PhoneBook::AddContact(){
 	std::string Nickname;
 	std::string PhoneNumber;
 	std::string DarkestSecret;
-	for (int i = 0; i < 8; i++){
+	while(1){
 		if (FirstName.empty()){
 			std::cout <<BOLD<<"Please enter the contact's First Name: " << RESET;
 			if (!getline(std::cin, FirstName))
@@ -89,8 +89,13 @@ void    PhoneBook::AddContact(){
 	}
 }
 
-void    PhoneBook::print(){
-	std::cout << "	id|First name| Last name|  Nickname|" << std::endl;
+int    PhoneBook::Print(){
+	if (contacts[0].GetFirstName().empty()){
+		std::cout <<YELLOW<< "No contact to print!!! Use \"ADD\" command to save a new contact " <<RESET<< std::endl;
+		return 1;
+	}
+	else
+		std::cout << "     index|First name| Last name|  Nickname|" << std::endl;
 	for (int i = 0; i < 8; i++)
 	{
 		if (!contacts[i].GetFirstName().empty()){
@@ -110,19 +115,26 @@ void    PhoneBook::print(){
 			std::cout << std::endl;
 		}
 	}
+	return 0;
 }
 
 void    PhoneBook::SearchContact(){
 	std::string index;
+	if (Print())
+		return ;
 	while(1){
-		std::cout<<GREEN<< "Please enter the id of the contact you want to see: "<<RESET;
+		std::cout<<GREEN<< "Please enter the index of the contact you want to see: "<<RESET;
 		if (!getline(std::cin, index))
 			exit(0);
-		else if (isdigit(index[0])){
-			if (atoi(index.c_str()) > 8 || atoi(index.c_str()) < 1)
-				std::cout << "Invalid id" << std::endl;
-			else if (contacts[atoi(index.c_str()) - 1].GetFirstName().empty())
+		else if (isdigit(index[0]) && index.length() == 1 && isprint(index[0])){
+			if (atoi(index.c_str()) > 8 || atoi(index.c_str()) < 1){
+				std::cout << "Invalid index" << std::endl;
+				break;
+			}
+			else if (contacts[atoi(index.c_str()) - 1].GetFirstName().empty()){
 				std::cout<<RED << "No contact at this id" << RESET<< std::endl;
+				break;
+			}
 			else{
 				std::cout << "First Name: " << contacts[atoi(index.c_str()) - 1].GetFirstName() << std::endl;
 				std::cout << "Last Name: " << contacts[atoi(index.c_str()) - 1].GetLastName() << std::endl;
@@ -131,6 +143,10 @@ void    PhoneBook::SearchContact(){
 				std::cout << "Darkest Secret: " << contacts[atoi(index.c_str()) - 1].GetDarkestSecret() << std::endl;
 				break;
 			}
+		}
+		else{
+			std::cout << "Invalid index" << std::endl;
+			break;
 		}
 	}
 }

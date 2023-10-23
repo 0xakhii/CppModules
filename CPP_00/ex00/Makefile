@@ -8,9 +8,9 @@ OBJ = $(SRC:.cpp=.o)
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	@echo "\033[1;32m Compiling...\033[0;m"
-	@$(CPP) $(CPPFLAGS) $(OBJ) -o $(NAME) 2> /dev/null
+$(NAME) : $(OBJ)
+	@echo "\033[1;32m Compiled\033[0;m"
+	@c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean:
 	@rm -rf $(OBJ)

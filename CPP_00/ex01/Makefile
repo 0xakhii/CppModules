@@ -2,14 +2,14 @@ NAME = phonebook
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = phonebook.cpp Contacts.cpp main.cpp
+SRC = phonebook.cpp contacts.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 $(NAME) : $(OBJ)
-	@echo "\033[1;32m Compiling...\033[0;m"
+	@echo "\033[1;32m Compiled\033[0;m"
 	@c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :

@@ -19,17 +19,17 @@ class Contact{
         std::string PhoneNumber;
         std::string DarkestSecret;
 	public:
-		std::string	GetFirstName() const;
-		std::string	GetLastName()const;
-		std::string	GetNickname()const;
-		std::string	GetPhoneNumber()const;
-		std::string	GetDarkestSecret()const;
+		std::string	GetFirstName();
+		std::string	GetLastName();
+		std::string	GetNickname();
+		std::string	GetPhoneNumber();
+		std::string	GetDarkestSecret();
 	
-	void		SetFirstName(std::string str);
-	void		SetLastName(std::string str);
-	void		SetNickname(std::string str);
-	void		SetPhoneNumber(std::string str);
-	void		SetDarkestSecret(std::string str);
+		void		SetFirstName(std::string str);
+		void		SetLastName(std::string str);
+		void		SetNickname(std::string str);
+		void		SetPhoneNumber(std::string str);
+		void		SetDarkestSecret(std::string str);
 
 };
 
@@ -39,7 +39,7 @@ class PhoneBook{
 	public:
 		void AddContact();
 		void SearchContact();
-		void print();
+		int	 Print();
 };
 
 #endif
