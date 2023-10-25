@@ -3,5 +3,5 @@
 void RandomChump( std::string name ){
     Zombie zombie;
     zombie.SetName(name);
-    zombie.announce();
+    zombie.Announce();
 }
