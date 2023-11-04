@@ -1,8 +1,10 @@
 NAME = BraiiiiiiinnnzzzZ
 
+CXX = c++
+
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC = Main.cpp NewZombie.cpp RandomChump.cpp Zombie.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -10,7 +12,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@echo "\033[1;32m Compiled\033[0;m"
-	@c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	@rm -rf $(OBJ)

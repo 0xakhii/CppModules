@@ -1,5 +1,7 @@
 NAME = Moar_Brainz
 
+CXX = c++
+
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
 SRC = main.cpp Zombie.cpp ZombieHorde.cpp
@@ -10,7 +12,7 @@ all : $(NAME)
 
 $(NAME) : $(OBJ)
 	@echo "\033[1;32m Compiled\033[0;m"
-	@c++ $(CPPFLAGS) $(OBJ) -o $(NAME)
+	@$(CXX) $(CPPFLAGS) $(OBJ) -o $(NAME)
 
 clean :
 	@rm -rf $(OBJ)
