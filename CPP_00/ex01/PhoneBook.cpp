@@ -127,20 +127,20 @@ void    PhoneBook::SearchContact(){
 		if (!getline(std::cin, index))
 			exit(0);
 		else if (isdigit(index[0]) && index.length() == 1 && isprint(index[0])){
-			if (atoi(index.c_str()) > 8 || atoi(index.c_str()) < 1){
+			if ((index[0] - 48) > 8 || (index[0] - 48) < 1){
 				std::cout << "Invalid index" << std::endl;
 				break;
 			}
-			else if (contacts[atoi(index.c_str()) - 1].GetFirstName().empty()){
+			else if (contacts[(index[0] - 48) - 1].GetFirstName().empty()){
 				std::cout<<RED << "No contact at this id" << RESET<< std::endl;
 				break;
 			}
 			else{
-				std::cout << "First Name: " << contacts[atoi(index.c_str()) - 1].GetFirstName() << std::endl;
-				std::cout << "Last Name: " << contacts[atoi(index.c_str()) - 1].GetLastName() << std::endl;
-				std::cout << "Nickname: " << contacts[atoi(index.c_str()) - 1].GetNickname() << std::endl;
-				std::cout << "Phone Number: " << contacts[atoi(index.c_str()) - 1].GetPhoneNumber() << std::endl;
-				std::cout << "Darkest Secret: " << contacts[atoi(index.c_str()) - 1].GetDarkestSecret() << std::endl;
+				std::cout << "First Name: " << contacts[(index[0] - 48) - 1].GetFirstName() << std::endl;
+				std::cout << "Last Name: " << contacts[(index[0] - 48) - 1].GetLastName() << std::endl;
+				std::cout << "Nickname: " << contacts[(index[0] - 48) - 1].GetNickname() << std::endl;
+				std::cout << "Phone Number: " << contacts[(index[0] - 48) - 1].GetPhoneNumber() << std::endl;
+				std::cout << "Darkest Secret: " << contacts[(index[0] - 48) - 1].GetDarkestSecret() << std::endl;
 				break;
 			}
 		}
