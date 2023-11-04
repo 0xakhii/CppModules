@@ -3,6 +3,7 @@
 
 # include <iostream>
 # include <iomanip>
+# include <cstdlib>
 
 # define GREEN "\033[1;32m"
 # define YELLOW "\033[1;33m"
