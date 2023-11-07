@@ -3,14 +3,15 @@
 
 # include "Weapon.hpp"
 
+class Weapon;
 class HumanA{
 	private:
-		std::string const name;
-		Weapon	&_weaponA;
+		std::string name;
+		Weapon &_weaponA;
 	public:
-		HumanA(std::string name, std::string &_weaponA);
-		void	Attack();
-		void	setType(std::string &Type);
+		HumanA(std::string name, Weapon &_weaponA);
+		~HumanA();
+		void attack();
 };
 
 #endif
