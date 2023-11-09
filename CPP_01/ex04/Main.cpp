@@ -11,7 +11,7 @@ void Sed::replace(){
     }
     std::string Line;
 	getline(FileToRead, Line, '\0');
-	size_t pos;
+	size_t pos = 0;
 	while((pos = Line.find(StringToReplace)) != std::string::npos){
 		Line.erase(pos, StringToReplace.length());
 		Line.insert(pos, StringToReplaceWith);
