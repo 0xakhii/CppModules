@@ -11,11 +11,16 @@ void Sed::replace(){
     }
     std::string Line;
 	getline(FileToRead, Line, '\0');
-	size_t pos = 0;
-	while((pos = Line.find(StringToReplace)) != std::string::npos){
+	size_t pos = Line.find(StringToReplace);
+	if (pos == std::string::npos) {
+		std::cout << "String not found" << std::endl;
+		std::remove(NewFileName.c_str());
+		return;
+	}
+	while (pos != std::string::npos) {
 		Line.erase(pos, StringToReplace.length());
 		Line.insert(pos, StringToReplaceWith);
-		pos += StringToReplaceWith.length();
+		pos = Line.find(StringToReplace, pos + StringToReplaceWith.length());
 	}
 	FileToWrite << Line;
     FileToRead.close();
