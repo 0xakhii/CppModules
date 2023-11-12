@@ -3,18 +3,18 @@
 
 # include <iostream>
 
-class Fixed{
-	private:
-		int					FixedValue;
-		static const int	FractionalBits = 8;
+class Fixed {
 	public:
 		Fixed();
-		Fixed(const Fixed &fixed);
 		~Fixed();
+		Fixed(const Fixed &fixed);
 		Fixed& operator=(const Fixed &fixed);
-		int getRawBits(void) const;
+		int getRawBits() const;
 		void setRawBits(int const raw);
-
+	private:
+		int FixedValue;
+		static const int FractionalBits = 8;
 };
+
 
 #endif
