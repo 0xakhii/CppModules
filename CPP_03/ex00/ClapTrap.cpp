@@ -1,5 +1,11 @@
-#include "iostream"
+#include "ClapTrap.hpp"
 
-int main(){
-	std::cout << "hello\n";
+ClapTrap::ClapTrap(){
+	std::cout << "ClapTrap default constructor called" << std::endl;
+	HitPoints = 10;
+	EnergyPoints = 10;
+	AttackDamage = 0;
+}
+
+ClapTrap::~ClapTrap(){
 }
