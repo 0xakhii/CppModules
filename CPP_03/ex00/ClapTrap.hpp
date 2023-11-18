@@ -26,6 +26,6 @@ class ClapTrap{
 		unsigned int	HitPoints;
 		unsigned int	EnergyPoints;
 		unsigned int	AttackDamage;
-}
+};
 
 #endif
