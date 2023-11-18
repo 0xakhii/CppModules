@@ -4,7 +4,7 @@ CXX = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = ClapTrap.cpp
+SRC = ClapTrap.cpp Main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
