@@ -1,7 +1,7 @@
 #include "ScavTrap.hpp"
 
 int main(){
-	ScavTrap scavtrap1("ScavTrap");
+	ScavTrap scavtrap1("ScavTrap1");
 	ScavTrap scavtrap2("ScavTrap2");
 	ScavTrap scavtrap3("ScavTrap3");
 
