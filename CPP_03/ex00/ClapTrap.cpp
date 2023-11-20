@@ -14,13 +14,18 @@ ClapTrap::~ClapTrap(){
 ClapTrap::ClapTrap(std::string name){
 	std::cout << "ClapTrap string constructor called" << std::endl;
 	Name = name;
+	HitPoints = 10;
+	EnergyPoints = 10;
+	AttackDamage = 0;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& copy){
 	std::cout << "ClapTrap copy constructor called" << std::endl;
-	*this = copy;
+	Name = copy.Name;
+	HitPoints = copy.HitPoints;
+	EnergyPoints = copy.EnergyPoints;
+	AttackDamage = copy.AttackDamage;	
 }
-
 ClapTrap& ClapTrap::operator=(const ClapTrap& copy){
 	std::cout << "ClapTrap copy assignment called" << std::endl;
 	if (this != &copy){
@@ -33,15 +38,32 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& copy){
 }
 
 void ClapTrap::attack(std::string const& target){
-	std::cout << "ClapTrap " << Name << " attacks " << target << ", causing " << AttackDamage << " points of damage!" << std::endl;
+	if (EnergyPoints > 0 && HitPoints > 0){
+		std::cout << "ClapTrap " << Name << " attacks " << target << ", causing " << AttackDamage << " points of damage!" << std::endl;
+		setEnergyPoints(EnergyPoints - 1);
+	}
+	else
+		std::cout << "ClapTrap " << Name << " is dead" << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
-	std::cout << "ClapTrap " << Name << " takes " << amount << " points of damage!" << std::endl;
+	if (HitPoints > 0){
+		std::cout << "ClapTrap " << Name << " takes " << amount << " points of damage!" << std::endl;
+		setHitPoints(HitPoints - amount);
+	}
+	else
+		std::cout << "ClapTrap " << Name << " is dead" << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
-	std::cout << "ClapTrap " << Name << " is repaired for " << amount << " points of damage!" << std::endl;
+	if (HitPoints <= 0)
+		std::cout << "ClapTrap " << Name << " is dead" << std::endl;
+	else if (EnergyPoints){
+		std::cout << "ClapTrap " << Name << " is repaired for " << amount << " points!" << std::endl;
+		setEnergyPoints(EnergyPoints + amount);
+	}
+	else
+		std::cout << "ClapTrap " << Name << " is out of energy!" << std::endl;
 }
 
 std::string ClapTrap::getName() const{
