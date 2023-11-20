@@ -1,21 +1,6 @@
 #include "ClapTrap.hpp"
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: mhrima <mhrima@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/21 06:11:48 by mhrima            #+#    #+#             */
-/*   Updated: 2023/08/22 02:00:55 by mhrima           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
-#include "ClapTrap.hpp"
-
-int main(void)
-{
+int main(){
 	ClapTrap clapTrap("clapTrap");
 	ClapTrap clapTrap2("clapTrap2");
 	ClapTrap clapTrap3("clapTrap3");
