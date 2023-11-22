@@ -18,8 +18,8 @@ Animal::Animal(const Animal &copy){
 	std::cout << "Animal Copy Constructor Called" << std::endl;
 }
 
-void	Animal::setType(std::string const &type){
-	this->type = type;
+void	Animal::setType(std::string const _type){
+	this->type = _type;
 }
 
 std::string Animal::getType() const{
@@ -27,13 +27,12 @@ std::string Animal::getType() const{
 }
 
 Animal&	Animal::operator=(const Animal &copy){
-		std::cout << "Animal Copy Assignment Called" << std::endl;
-	if (this != &copy){
-		setType(copy.getType());
-	}
+	std::cout << "Animal Copy Assignment Called" << std::endl;
+	if (this != &copy)
+		setType(copy.type);
 	return *this;
 }
 
-void	Animal::makeSound(){
+void	Animal::makeSound() const{
 	std::cout << "Animal Makes a Sound" << std::endl;
 }

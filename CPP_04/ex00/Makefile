@@ -4,7 +4,7 @@ CXX = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98
 
-SRC = Main.cpp
+SRC = Main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJ = $(SRC:.cpp=.o)
 

@@ -9,12 +9,12 @@ class Animal{
 	public:
 		Animal();
 		~Animal();
-		Animal(std::string const type);
+		Animal(std::string const _type);
 		Animal(const Animal &);
-		void	setType(std::string const &type);
+		void	setType(std::string const type);
 		std::string getType() const;
 		Animal&	operator=(const Animal &copy);
-		virtual	void makeSound();
+		virtual	void makeSound() const;
 };
 
 #endif
