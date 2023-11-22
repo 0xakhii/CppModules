@@ -2,7 +2,7 @@ NAME = Polymorphism
 
 CXX = c++
 
-CPPFLAGS = -Wall -Werror -Wextra -std=c++98
+CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
 
 SRC = Main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
 

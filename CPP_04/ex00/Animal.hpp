@@ -8,7 +8,7 @@ class Animal{
 		std::string type;
 	public:
 		Animal();
-		~Animal();
+		virtual ~Animal();
 		Animal(std::string const _type);
 		Animal(const Animal &);
 		void	setType(std::string const type);
