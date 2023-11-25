@@ -10,7 +10,6 @@ class Cure : public AMateria
         Cure(const Cure& Cure);
         Cure &operator=(const Cure& Cure);
         ~Cure();
-
         Cure(std::string const & type);
         std::string const & getType() const;
         AMateria* clone() const;

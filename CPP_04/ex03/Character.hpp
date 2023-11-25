@@ -10,12 +10,10 @@ class Character : public ICharacter
         AMateria *_inventory[4];
         AMateria *_saveInventory[4];
     public:
-        //Orthodox Canonical Form
         Character();
         Character(const Character& Character);
         Character &operator=(const Character& Character);
         ~Character();
-
         Character(std::string const & name);
         std::string const & getName() const;
         void equip(AMateria* m);
