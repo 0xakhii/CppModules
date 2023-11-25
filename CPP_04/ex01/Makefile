@@ -23,5 +23,3 @@ fclean : clean
 	@echo "\033[1;31m Full Cleaning...\033[0;m"
 
 re : fclean all
-
-.PHONY : clean re all fclean

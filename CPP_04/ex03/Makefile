@@ -1,10 +1,10 @@
-NAME = Polymorphism
+NAME = AMateria
 
 CXX = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
 
-SRC = Main.cpp Dog.cpp Cat.cpp Animal.cpp WrongAnimal.cpp WrongCat.cpp
+SRC = AMateria.cpp Character.cpp Cure.cpp Ice.cpp main.cpp MateriaSource.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
