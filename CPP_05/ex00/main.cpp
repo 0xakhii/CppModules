@@ -2,5 +2,6 @@
 
 int main(){
 	Bureaucrat bureaucrat;
-	std::cout << "hello world!" << std::endl;
+	Bureaucrat bureaucrat1("hello");
+	
 }

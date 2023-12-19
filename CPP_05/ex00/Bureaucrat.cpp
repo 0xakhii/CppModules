@@ -2,6 +2,10 @@
 
 Bureaucrat::Bureaucrat(){}
 
+Bureaucrat::Bureaucrat(std::string const Name, int Grade) : _name(Name){
+	this->_grade = Grade;
+}
+
 Bureaucrat::~Bureaucrat(){}
 
 std::string const Bureaucrat::getName(){
@@ -11,4 +15,3 @@ std::string const Bureaucrat::getName(){
 int	Bureaucrat::getGrade(){
 	return this->_grade;
 }
-
