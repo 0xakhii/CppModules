@@ -16,7 +16,7 @@ class Bureaucrat{
 		~Bureaucrat();
 		/************************************************/
 		std::string const 	getName() const;
-		int					getGrade();
+		int					getGrade() const;
 		void				incrementGrade();
 		void				decrementGrade();
 		/************************************************/

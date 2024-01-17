@@ -1,28 +1,19 @@
 #include "Form.hpp"
 
+
 int main(){
-	Form form;
-	std::cout << form;
 	try{
-		Form form1("hamid", 1, 10);
-		std::cout << form1;
+		Bureaucrat b1("b1", 1);
+		Bureaucrat b2("b2", 150);
+		Form f1("f1", 1, 1);
+		Form f2("f2", 150, 150);
+		std::cout << b1 << b2 << f1 << f2;
+		b1.signForm(f1);
+		b2.signForm(f2);
+		b1.signForm(f2);
+		f1.beSigned(b2);
 	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
+	catch(const std::exception& e){
+		std::cout << e.what() << '\n';
 	}
-	try{
-		Form form1("homa", 15, 77);
-		std::cout << form1;
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		Form form1("howa", 151, 0);
-		std::cout << form1;
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	return (0);
 }

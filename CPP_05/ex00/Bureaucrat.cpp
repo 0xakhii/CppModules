@@ -12,6 +12,7 @@ Bureaucrat::Bureaucrat(std::string const Name, int Grade) : _name(Name){
 
 Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade){}
 
+
 Bureaucrat::~Bureaucrat(){}
 
 std::string const Bureaucrat::getName() const {
@@ -23,7 +24,7 @@ std::ostream &operator<<(std::ostream &out, Bureaucrat &bureaucrat){
 	return (out);
 }
 
-int	Bureaucrat::getGrade(){
+int	Bureaucrat::getGrade() const{
 	return this->_grade;
 }
 
