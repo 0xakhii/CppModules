@@ -12,11 +12,14 @@ class Bureaucrat{
 	public:
 		Bureaucrat();
 		Bureaucrat(std::string const Name, int Grade);
+		Bureaucrat(Bureaucrat const &copy);
 		~Bureaucrat();
-		std::string const getName() const;
-		void	incrementGrade();
-		void	decrementGrade();
-		int	getGrade();
+		/************************************************/
+		std::string const 	getName() const;
+		int					getGrade();
+		void				incrementGrade();
+		void				decrementGrade();
+		/************************************************/
 		class	GradeTooHighException : public std::exception{
 			const char* what() const throw();
 		};

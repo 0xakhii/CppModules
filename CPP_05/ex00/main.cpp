@@ -4,7 +4,7 @@ int main(){
 	Bureaucrat bureaucrat;
 	std::cout << bureaucrat;
 	try{
-		Bureaucrat bureaucrat1("bureaucrat1", -1);
+		Bureaucrat bureaucrat1("bureaucrat1", 1);
 		std::cout << bureaucrat1;
 	}
 	catch (std::exception &e){
@@ -17,7 +17,7 @@ int main(){
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;
 	}
-	try{
+	try{  
 		Bureaucrat bureaucrat3("bureaucrat3", 0);
 		std::cout << bureaucrat3;
 	}
