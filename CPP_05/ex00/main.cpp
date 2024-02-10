@@ -25,15 +25,10 @@ int main(){
 		std::cout << e.what() << std::endl;
 	}
 	try{
-		Bureaucrat bureaucrat4("bureaucrat4", 150);
+		Bureaucrat	bureaucrat4("buraucrat4", 3);
+		bureaucrat4.incrementGrade();
+		bureaucrat4.incrementGrade();
 		std::cout << bureaucrat4;
-	}
-	catch (std::exception &e){
-		std::cout << e.what() << std::endl;
-	}
-	try{
-		Bureaucrat bureaucrat5("bureaucrat5", 71);
-		std::cout << bureaucrat5;
 	}
 	catch (std::exception &e){
 		std::cout << e.what() << std::endl;
