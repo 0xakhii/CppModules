@@ -13,7 +13,7 @@ class Form{
 		Form();
 		Form(std::string const _name, const int signGrade, const int execGrade);
 		Form(Form const &copy);
-		~Form();
+		virtual ~Form();
 		/************************************************/
 		std::string const 	getName() 		const;
 		bool 				getSigned() 	const;

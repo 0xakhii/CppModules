@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string const _target):_target(_target){}
+ShrubberyCreationForm::ShrubberyCreationForm(std::string _target):_target(_target){}
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
 
