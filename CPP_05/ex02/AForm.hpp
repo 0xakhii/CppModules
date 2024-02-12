@@ -12,7 +12,7 @@ class AForm{
 	public:
 		AForm();
 		AForm(std::string const _name, const int signGrade, const int execGrade);
-		AForm(Form const &copy);
+		AForm(AForm const &copy);
 		virtual ~AForm();
 		/************************************************/
 		std::string const 	getName() 		const;
@@ -27,7 +27,10 @@ class AForm{
 		class	GradeTooLowException : public std::exception{
 			const char* what() const throw();
 		};
+		class	NotSigned : public std::exception{
+			const char*	what() const throw();
+		};
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, Form &form);
+std::ostream &operator<<(std::ostream &out, AForm &form);

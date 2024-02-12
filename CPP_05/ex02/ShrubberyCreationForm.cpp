@@ -1,13 +1,13 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string _target):
+ShrubberyCreationForm::ShrubberyCreationForm():
 	AForm("ShrubberyCreationForm", 145, 137){
 		_target = "Default";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string _target):
 	AForm("ShrubberyCreationForm", 145, 137){
-		_target = _target;
+		this->_target = _target;
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){}
@@ -21,8 +21,21 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 			std::cout << "Failed to open the file" << std::endl;
 			return ;
 		}
-		FileToWrite << "  _-_\n    /~~   ~~\\n /~~         ~~\\n{               }\n";
-		FileToWrite << " \\  _-     -_  /\n ~  \\ //  ~\n_- -   | | _- _\n  _ -  | |   -_\n";
-		FileToWrite << "      // \\\n____________\n";
+		FileToWrite << "      /\\      \n"
+		<< "     /\\*\\     \n"
+		<< "    /\\O\\*\\    \n"
+		<< "   /*/\\/\\/\\   \n"
+		<< "  /\\O\\/\\*\\/\\  \n"
+		<< " /\\*\\/\\*\\/\\/\\ \n"
+		<< "/\\O\\/\\/*/\\/O/\\\n"
+		<< "      ||      \n"
+		<< "      ||      \n"
+		<< "      ||      \n"
+		<< "==============\n";
 	}
+	else if (getSigned() == false)
+		throw NotSigned();
+	else
+		throw GradeTooLowException();
+
 }

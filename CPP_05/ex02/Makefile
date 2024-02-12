@@ -4,7 +4,7 @@ CXX = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
 
-SRC = Main.cpp Bureaucrat.cpp Aform.cpp ShrubberyCreationForm.cpp
+SRC = Main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
