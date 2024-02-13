@@ -1,69 +1,69 @@
 #include "AForm.hpp"
 
-AForm::AForm(): 
+Form::Form(): 
 	_name("default"), 
 	_signed(false), 
 	signGrade(150), 
 	execGrade(150){}
 
-AForm::AForm(std::string const name, int const signGrade, int const execGrade): 
+Form::Form(std::string const name, int const signGrade, int const execGrade): 
 	_name(name), 
 	signGrade(signGrade), 
 	execGrade(execGrade){
 	if (signGrade < 1 || execGrade < 1)
-		throw AForm::GradeTooHighException();
+		throw Form::GradeTooHighException();
 	else if (signGrade > 150 || execGrade > 150)
-		throw AForm::GradeTooLowException();
+		throw Form::GradeTooLowException();
 	else
 		_signed = false;
 }
 
-AForm::AForm(AForm const &copy): 
+Form::Form(Form const &copy): 
 	_name(copy._name), 
 	signGrade(copy.signGrade), 
 	execGrade(copy.execGrade){
 	_signed = copy._signed;
 }
 
-AForm::~AForm(){}
+Form::~Form(){}
 
-std::string const AForm::getName() const{
+std::string const Form::getName() const{
 	return _name;
 }
 
-bool  AForm::getSigned() const{
+bool  Form::getSigned() const{
 	return _signed;
 }
 
-int   AForm::getSignGrade() const{
+int   Form::getSignGrade() const{
 	return signGrade;
 }
 
-int   AForm::getExecGrade() const{
+int   Form::getExecGrade() const{
 	return execGrade;
 }
 
-const char* AForm::GradeTooHighException::what() const throw(){
+const char* Form::GradeTooHighException::what() const throw(){
 	return ("Grade is too high");
 }
 
-const char* AForm::GradeTooLowException::what() const throw(){
+const char* Form::GradeTooLowException::what() const throw(){
 	return ("Grade is too low");
 }
 
-const char* AForm::NotSigned::what() const throw(){
+const char* Form::NotSigned::what() const throw(){
 	return ("Not Signed");
 }
 
-void AForm::beSigned(Bureaucrat const &bureaucrat){
+void Form::beSigned(Bureaucrat const &bureaucrat){
 	if (bureaucrat.getGrade() > signGrade)
-		throw AForm::GradeTooLowException();
+		throw Form::GradeTooLowException();
 	else
 		_signed = true;
 }
 
 
-std::ostream &operator<<(std::ostream &out, AForm &Aform){
+std::ostream &operator<<(std::ostream &out, Form &Aform){
 	out << Aform.getName() << ", sign grade: " << Aform.getSignGrade() << ", exec grade: " << Aform.getExecGrade() << std::endl;
 	return out;
 }

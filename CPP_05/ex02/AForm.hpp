@@ -3,17 +3,17 @@
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
-class AForm{
+class Form{
 	private:
 		std::string const 	_name;
 		bool 				_signed;
 		const int 			signGrade;
 		const int 			execGrade;
 	public:
-		AForm();
-		AForm(std::string const _name, const int signGrade, const int execGrade);
-		AForm(AForm const &copy);
-		virtual ~AForm();
+		Form();
+		Form(std::string const _name, const int signGrade, const int execGrade);
+		Form(Form const &copy);
+		virtual ~Form();
 		/************************************************/
 		std::string const 	getName() 		const;
 		bool 				getSigned() 	const;
@@ -33,4 +33,4 @@ class AForm{
 		virtual void	execute(Bureaucrat const & executor) const = 0;
 };
 
-std::ostream &operator<<(std::ostream &out, AForm &form);
+std::ostream &operator<<(std::ostream &out, Form &form);
