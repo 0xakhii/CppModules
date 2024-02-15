@@ -21,3 +21,11 @@ void	PresidentialPardonForm::execute(Bureaucrat const & executor) const{
 	else
 		throw GradeTooLowException(); 
 }
+
+std::string	PresidentialPardonForm::getTarget(){
+	return _target;
+}
+
+std::ostream &operator<<(std::ostream &out, PresidentialPardonForm &_president){
+	std::cout << "Presidentialform target: " << _president.getTarget() << std::endl;
+}

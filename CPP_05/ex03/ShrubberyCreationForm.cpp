@@ -39,3 +39,11 @@ void	ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 		throw GradeTooLowException();
 
 }
+
+std::string	ShrubberyCreationForm::getTarget(){
+	return _target;
+}
+
+std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm &_shrubbery){
+	std::cout << "ShrubberyCreationForm target: " << _shrubbery.getTarget() << std::endl;
+}

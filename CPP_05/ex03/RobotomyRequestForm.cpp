@@ -22,3 +22,11 @@ void	RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 	else
 		throw GradeTooLowException();
 }
+
+std::string	RobotomyRequestForm::getTarget(){
+	return _target;
+}
+
+std::ostream &operator<<(std::ostream &out, RobotomyRequestForm &_robotomy){
+	std::cout << "RobotomyRequestForm target: " << _robotomy.getTarget() << std::endl;
+}

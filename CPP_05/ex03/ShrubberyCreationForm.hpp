@@ -11,5 +11,8 @@ class ShrubberyCreationForm : public Form{
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(std::string _target);
 		~ShrubberyCreationForm();
+		std::string	getTarget();
 		void	execute(Bureaucrat const & executor) const;
 };
+
+std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm &_shrubbery);
