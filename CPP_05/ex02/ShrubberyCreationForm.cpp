@@ -45,5 +45,6 @@ std::string	ShrubberyCreationForm::getTarget(){
 }
 
 std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm &_shrubbery){
-	std::cout << "ShrubberyCreationForm target: " << _shrubbery.getTarget() << std::endl;
+	out << "ShrubberyCreationForm target: " << _shrubbery.getTarget() << std::endl;
+	return out;
 }

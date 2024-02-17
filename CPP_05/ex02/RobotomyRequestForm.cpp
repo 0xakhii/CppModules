@@ -28,5 +28,6 @@ std::string	RobotomyRequestForm::getTarget(){
 }
 
 std::ostream &operator<<(std::ostream &out, RobotomyRequestForm &_robotomy){
-	std::cout << "RobotomyRequestForm target: " << _robotomy.getTarget() << std::endl;
+	out << "RobotomyRequestForm target: " << _robotomy.getTarget() << std::endl;
+	return out;
 }

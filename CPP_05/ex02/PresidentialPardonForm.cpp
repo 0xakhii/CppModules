@@ -27,5 +27,6 @@ std::string	PresidentialPardonForm::getTarget(){
 }
 
 std::ostream &operator<<(std::ostream &out, PresidentialPardonForm &_president){
-	std::cout << "Presidentialform target: " << _president.getTarget() << std::endl;
+	out << "Presidentialform target: " << _president.getTarget() << std::endl;
+	return out;
 }
