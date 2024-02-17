@@ -11,10 +11,7 @@ Form*	Intern::makeForm(std::string _name, std::string _target){
 		if (_name[i] != ' ')
 			formName += tolower(_name[i]);
 	}
-	std::string Name[3];
-	Name[0] = "shrubberycreation";
-	Name[1] = "robotomyrequest";
-	Name[2] = "presidentialpardon";
+	std::string Name[3] = {"shrubberycreation", "robotomyrequest", "presidentialpardon"};
 	int j = 0;
 	while (j < 3 && Name[j] != formName)
 		j++;
