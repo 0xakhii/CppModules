@@ -58,8 +58,14 @@ void Form::beSigned(Bureaucrat const &bureaucrat){
 		_signed = true;
 }
 
-
 std::ostream &operator<<(std::ostream &out, Form &form){
 	out << form.getName() << ", sign grade: " << form.getSignGrade() << ", exec grade: " << form.getExecGrade() << std::endl;
 	return out;
+}
+
+Form &Form::operator=(Form const &form){
+	if (this == &form)
+		return *this;
+	_signed = form._signed;
+	return *this;
 }

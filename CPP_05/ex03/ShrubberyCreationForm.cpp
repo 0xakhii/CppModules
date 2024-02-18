@@ -48,3 +48,15 @@ std::ostream &operator<<(std::ostream &out, ShrubberyCreationForm &_shrubbery){
 	out << "ShrubberyCreationForm target: " << _shrubbery.getTarget() << std::endl;
 	return out;
 }
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &shrubbery){
+	if (this == &shrubbery)
+		return *this;
+	_target = shrubbery._target;
+	return *this;
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &copy):
+	Form(copy){
+		_target = copy._target;
+}

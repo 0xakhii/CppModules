@@ -2,6 +2,8 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
+#include <stdlib.h>
+#include <time.h> 
 
 class RobotomyRequestForm : public Form{
 	private:
@@ -9,6 +11,8 @@ class RobotomyRequestForm : public Form{
 	public:
 		RobotomyRequestForm();
 		RobotomyRequestForm(std::string _target);
+		RobotomyRequestForm(RobotomyRequestForm const &copy);
+		RobotomyRequestForm &operator=(RobotomyRequestForm const &robotomy);
 		~RobotomyRequestForm();
 		std::string	getTarget();
 		void	execute(Bureaucrat const & exeutor) const;

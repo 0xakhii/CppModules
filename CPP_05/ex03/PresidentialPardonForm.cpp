@@ -30,3 +30,15 @@ std::ostream &operator<<(std::ostream &out, PresidentialPardonForm &_president){
 	out << "Presidentialform target: " << _president.getTarget() << std::endl;
 	return out;
 }
+
+PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &president){
+	if (this == &president)
+		return *this;
+	_target = president._target;
+	return *this;
+}
+
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy):
+	Form(copy){
+		_target = copy._target;
+}

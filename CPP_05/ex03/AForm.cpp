@@ -67,3 +67,10 @@ std::ostream &operator<<(std::ostream &out, Form &Aform){
 	out << Aform.getName() << ", sign grade: " << Aform.getSignGrade() << ", exec grade: " << Aform.getExecGrade() << std::endl;
 	return out;
 }
+
+Form &Form::operator=(Form const &form){
+	if (this == &form)
+		return *this;
+	_signed = form._signed;
+	return *this;
+}

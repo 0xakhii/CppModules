@@ -13,6 +13,7 @@ class Form{
 		Form();
 		Form(std::string const _name, const int signGrade, const int execGrade);
 		Form(Form const &copy);
+		Form &operator=(Form const &form);
 		~Form();
 		/************************************************/
 		std::string const 	getName() 		const;

@@ -14,8 +14,13 @@ RobotomyRequestForm::~RobotomyRequestForm(){}
 
 void	RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 	if (getSigned() == true && executor.getGrade() <= getExecGrade()){
-		std::cout << "*DRILLING NOISES*\n" << _target;
-		std::cout << "has been  robotomized successfully 50% of the time" << std::endl;
+		srand(time(NULL));
+		bool random = rand() % 2;
+		if (random)
+			std::cout << _target << "has been  robotomized successfully 50% of the time" << std::endl;
+		else
+			std::cout << _target << "has been  robotomized failed 50% of the time" << std::endl;
+
 	}
 	else if(getSigned() == false)
 		throw NotSigned();
@@ -30,4 +35,16 @@ std::string	RobotomyRequestForm::getTarget(){
 std::ostream &operator<<(std::ostream &out, RobotomyRequestForm &_robotomy){
 	out << "RobotomyRequestForm target: " << _robotomy.getTarget() << std::endl;
 	return out;
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &robotomy){
+	if (this == &robotomy)
+		return *this;
+	_target = robotomy._target;
+	return *this;
+}
+
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy):
+	Form(copy){
+		_target = copy._target;
 }

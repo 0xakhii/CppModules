@@ -47,3 +47,10 @@ const char* Bureaucrat::GradeTooHighException::what() const throw(){
 const char* Bureaucrat::GradeTooLowException::what() const throw(){
 	return ("Grade is too low");
 }
+
+Bureaucrat &Bureaucrat::operator=(Bureaucrat const &bureaucrat){
+	if (this == &bureaucrat)
+		return *this;
+	_grade = bureaucrat._grade;
+	return *this;
+}
