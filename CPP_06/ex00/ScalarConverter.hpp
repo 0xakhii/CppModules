@@ -3,7 +3,7 @@
 #include <iostream>
 
 class ScalarConverter{
-	public:
+	private:
 		ScalarConverter();
 		~ScalarConverter();
 };

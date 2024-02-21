@@ -5,7 +5,7 @@ Base::~Base(){}
 Base* generate(){
 	srand(time(0));
 	int i = rand() % 3;
-	switch (i){
+	switch (i) {
 		case 0:
 			return new A;
 		case 1:
