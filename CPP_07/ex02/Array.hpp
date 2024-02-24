@@ -31,8 +31,13 @@ template<class T>class Array{
 			return this->_size;
 		}
 		T	&operator[](long index){
-			if (index < 0 || _size <= (unsigned int)index)
+			if (index < 0 || _size <= (unsigned int)index || _size == 0)
 				throw std::out_of_range("Index Out Of Bounds");	
+			return elements[index];
+		}
+		const T	&operator[](long index)const{
+			if (index < 0 || _size <= (unsigned int)index || _size == 0)
+				throw std::out_of_range("Index Out Of Bounds");
 			return elements[index];
 		}
 };
