@@ -54,24 +54,3 @@ int main(int, char**)
     delete [] mirror;//
     return 0;
 }
-
-// int main(){
-// 	class Array<int> A(5);
-//     int i = 0;
-   
-//     while (i < 5)
-//     {
-//         try
-//         {
-// 			if (i == 4)
-// 				i+=1;
-//             A[i] = i;
-// 		    std::cout << A[i] << std::endl;
-//         }
-//         catch(std::exception &e)
-//         {
-//             std::cout << e.what() << '\n';
-//         }
-//         i++;
-//     }
-// }

@@ -13,11 +13,8 @@ template<class T>class Array{
 			if (elements)
 				delete [] elements;
 		}
-		Array(const Array& other) : elements(new T[other._size]())
-			, _size(other._size){
-			for (unsigned int i = 0; i < _size; i++) {
-				elements[i] = other.elements[i];
-			}
+		Array(const Array& copy){
+			*this = copy;
 		}
 		Array &operator=(Array const &array){
 			if (this == &array)
@@ -33,8 +30,8 @@ template<class T>class Array{
 		unsigned int size() const{
 			return this->_size;
 		}
-		T	&operator[](long index) {
-			if (index < 0 || _size <= index)
+		T	&operator[](long index){
+			if (index < 0 || _size <= (unsigned int)index)
 				throw std::out_of_range("Index Out Of Bounds");	
 			return elements[index];
 		}
