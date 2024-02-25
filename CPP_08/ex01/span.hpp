@@ -14,7 +14,7 @@ class Span{
 		Span(unsigned int N);
 		Span(const Span &copy);
 		Span&	operator=(const Span &copy);
-		~Span(){}
+		~Span();
 		unsigned int	getSize()const;
 		const std::vector<int> &getContainer()const;
 		void	addNumber(int number);

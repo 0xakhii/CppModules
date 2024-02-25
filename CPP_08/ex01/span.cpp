@@ -8,6 +8,10 @@ Span::Span(const Span &copy){
 	*this = copy;
 }
 
+Span::~Span(){
+	Container.erase(Container.begin(), Container.end());
+}
+
 Span&	Span::operator=(const Span &copy){
 	if (this == &copy)
 		return *this;
