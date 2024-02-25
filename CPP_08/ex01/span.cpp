@@ -34,6 +34,11 @@ void	Span::addNumber(int number){
 		Container.push_back(number);
 }
 
+void	Span::LotOfNumbers(){
+	for(int i = 0; i < 1000; i++)
+		addNumber(i);
+}
+
 int Span::shortestSpan() const {
     if (Container.size() < 2)
         throw "Cannot find shortest span";

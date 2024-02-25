@@ -20,6 +20,7 @@ class Span{
 		void	addNumber(int number);
 		int		shortestSpan()const;
 		int		longestSpan()const;
+		void	LotOfNumbers();
 };
 
 std::ostream&	operator<<(std::ostream &out, Span &span);

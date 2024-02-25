@@ -32,6 +32,20 @@ int main(){
 		std::cout << "longest span: " << container.longestSpan() << std::endl;
 		std::cout << "shortest span: " << container.shortestSpan() << std::endl;
 	}
+	std::cout << "\n\nforth test: \n\n";
+	{
+		try{
+			Span container(1000);
+			container.LotOfNumbers();
+			size_t size = container.getContainer().size();
+			for(size_t i = 0; i < size; i++)
+				std::cout << container.getContainer()[i] << ", ";
+			std::cout << std::endl; 
+		}
+		catch(const char *msg){
+			std::cout << msg << std::endl;
+		}
+	}
 }
 
 // int main()
