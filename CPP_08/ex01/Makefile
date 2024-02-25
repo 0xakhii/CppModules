@@ -4,7 +4,7 @@ CXX = c++
 
 CPPFLAGS = -Wall -Werror -Wextra -std=c++98 -g3 -fsanitize=address
 
-SRC = main.cpp
+SRC = main.cpp span.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
