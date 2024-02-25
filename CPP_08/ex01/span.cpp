@@ -30,12 +30,26 @@ void	Span::addNumber(int number){
 		Container.push_back(number);
 }
 
-int		Span::shortestSpan()const{
-
+int Span::shortestSpan() const {
+    if (Container.size() < 2)
+        throw "Cannot find shortest span";
+    std::vector<int> copy(Container.begin(), Container.end());
+    std::sort(copy.begin(), copy.end());
+    int shortestDiff = std::abs(copy[1] - copy[0]);
+    for (size_t i = 1; i < copy.size() - 1; ++i) {
+        int currentDiff = std::abs(copy[i + 1] - copy[i]);
+        if (currentDiff < shortestDiff) {
+            shortestDiff = currentDiff;
+        }
+    }
+    return shortestDiff;
 }
 
 int		Span::longestSpan()const{
-
+	if (Container.size() < 2)
+		throw "Cannot find shortest span";
+	return (*std::max_element(Container.begin(), Container.end())
+		- *std::min_element(Container.begin(), Container.end()));
 }
 
 std::ostream&	operator<<(std::ostream &out, Span &span){
