@@ -35,8 +35,9 @@ int main(){
 	std::cout << "\n\nforth test: \n\n";
 	{
 		try{
-			Span container(1000);
-			container.LotOfNumbers();
+			size_t Num = 1000;
+			Span container(Num);
+			container.LotOfNumbers(Num);
 			size_t size = container.getContainer().size();
 			for(size_t i = 0; i < size; i++)
 				std::cout << container.getContainer()[i] << ", ";

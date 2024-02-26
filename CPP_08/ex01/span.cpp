@@ -34,9 +34,10 @@ void	Span::addNumber(int number){
 		Container.push_back(number);
 }
 
-void	Span::LotOfNumbers(){
-	for(int i = 0; i < 1000; i++)
-		addNumber(i);
+void	Span::LotOfNumbers(size_t _number){
+	srand(time(NULL));
+	for(size_t i = 0; i < _number; i++)
+		addNumber(rand());
 }
 
 int Span::shortestSpan() const {
