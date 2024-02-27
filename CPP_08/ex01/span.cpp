@@ -34,11 +34,12 @@ void	Span::addNumber(int number){
 		Container.push_back(number);
 }
 
-void	Span::LotOfNumbers(size_t _number){
-	srand(time(NULL));
-	for(size_t i = 0; i < _number; i++)
-		addNumber(rand());
+void Span::LotOfNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end){
+	std::vector<int>::iterator it;
+	for (it = begin; it != end; ++it)
+		addNumber(*it);
 }
+
 
 int Span::shortestSpan() const {
     if (Container.size() < 2)

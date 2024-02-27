@@ -20,7 +20,7 @@ class Span{
 		void	addNumber(int number);
 		int		shortestSpan()const;
 		int		longestSpan()const;
-		void	LotOfNumbers(size_t _number);
+		void 	LotOfNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 };
 
 std::ostream&	operator<<(std::ostream &out, Span &span);

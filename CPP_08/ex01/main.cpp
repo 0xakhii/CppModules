@@ -35,13 +35,11 @@ int main(){
 	std::cout << "\n\nforth test: \n\n";
 	{
 		try{
-			size_t Num = 1000;
-			Span container(Num);
-			container.LotOfNumbers(Num);
-			size_t size = container.getContainer().size();
-			for(size_t i = 0; i < size; i++)
-				std::cout << container.getContainer()[i] << ", ";
-			std::cout << std::endl; 
+			int int_array[] = {8,2,4,5,5,05,7,2,6,8,1,2,8,7,115,8,12,4,84,584,51,84,51};
+			std::vector<int> vect(int_array, int_array + sizeof(int_array) / sizeof(int_array[0]));
+			Span Container(vect.size());
+			Container.LotOfNumbers(vect.begin(), vect.end());
+			std::cout << Container;
 		}
 		catch(const char *msg){
 			std::cout << msg << std::endl;
