@@ -1,5 +1,27 @@
 #include "MutantStack.hpp"
 
+int main(){
+	MutantStack<int> _stack;
+	std::cout << "empty stack: " << (_stack.empty() ? "true" : "false") << std::endl;
+	for(int i = 0; i < 10; i++)
+		_stack.push(i);
+	std::cout << "empty stack: " << (_stack.empty() ? "true" : "false") << std::endl;
+	MutantStack<int>::iterator it = _stack.begin();
+	MutantStack<int>::iterator ite = _stack.end();
+	std::cout << "stack content: ";
+	while (it != ite)
+	{
+		std::cout << *it << ", ";
+		++it;
+	}
+	std::cout << "\nstack size: " << _stack.size() << std::endl;
+	std::cout << "top element: " << _stack.top() << std::endl;
+	_stack.pop();
+	std::cout << "*poped the last element pushed in the stack*" << std::endl;
+	std::cout << "top element after pop: " << _stack.top() << std::endl;
+
+}
+
 // int main()
 // {
 // 	MutantStack<int> mstack;
@@ -26,23 +48,3 @@
 // 	std::stack<int> s(mstack);
 // 	return 0;
 // }
-
-int main(){
-	MutantStack<int> _stack;
-	std::cout << "empty stack: " << (_stack.empty() ? "true" : "false") << std::endl;
-	for(int i = 0; i < 10; i++)
-		_stack.push(i);
-	std::cout << "empty stack: " << (_stack.empty() ? "true" : "false") << std::endl;
-	MutantStack<int>::iterator it = _stack.begin();
-	MutantStack<int>::iterator ite = _stack.end();
-	std::cout << "stack content: ";
-	while (it != ite)
-	{
-		std::cout << *it << ", ";
-		++it;
-	}
-	std::cout << "\nstack size: " << _stack.size() << std::endl;
-	std::cout << "top element: " << _stack.top() << std::endl;
-	_stack.pop();
-	std::cout << "top element after pop: " << _stack.top() << std::endl;
-}
