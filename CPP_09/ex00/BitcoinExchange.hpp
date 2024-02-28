@@ -5,16 +5,19 @@
 #include <ctime>
 #include <vector>
 #include <cstdlib>
+#include <map>
 
-class Btc{
+class BTC{
 	private:
-		std::vector<float> 			Value;
-		std::vector<const char *>	Date;
+		std::string								_date;
+		std::string								_value;
+		std::map<std::string, std::string>		_map;
 	public:
-		Btc();
-		~Btc();
-		void	setValue(float val);
-		std::vector<float> getValue() const;
-		void	setDate(std::string Date);
-		// std::vector<>
+		BTC();
+		BTC(BTC const &copy);
+		BTC&	operator=(BTC const &copy);
+		~BTC();
+		void	parseInput(std::string FileContent);
 };
+
+bool	parseDate(int Year, int Month, int Day);
