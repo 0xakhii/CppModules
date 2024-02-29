@@ -14,9 +14,12 @@ class BTC{
 		std::map<std::string, std::string>		_map;
 	public:
 		BTC();
+		BTC(const char* in_file);
 		BTC(BTC const &copy);
 		BTC&	operator=(BTC const &copy);
 		~BTC();
+		void	setVal(std::string Value);
+		void	setDate(std::string Date);
 		void	parseInput(std::string FileContent);
 };
 

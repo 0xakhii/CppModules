@@ -1,13 +1,23 @@
 #include "BitcoinExchange.hpp"
 
-void	BTC::parseInput(std::string FileContent){
-	_date = FileContent.substr(0, FileContent.find("|"));
+void	BTC::parseInput(std::string InputContent){
+	_date = InputContent.substr(0, InputContent.find("|"));
 	int	Year, Month, Day;
 	sscanf(_date.c_str(), "%d-%d-%d", &Year, &Month, &Day);
-	if (!parseDate(Year, Month, Day))
+	if (!parseDate(Year, Month, Day)){
 		std::cout << "Error: bad input => " << _date << std::endl;
-	else
-		std::cout << _date << "=> " << std::endl;
+		return ;
+	}
+	_value = InputContent.substr(InputContent.find("|") + 1, InputContent.length());
+	float Val = std::atof(_value.c_str());
+	if (Val < 0){
+		std::cout << "Error: Not a Positive Number" << std::endl;
+		return ;
+	}
+	else if (Val > 1000){
+		std::cout << "Error: Too Large Number" << std::endl;
+		return ;
+	}
 }
 
 int main(int ac, char **av){
@@ -16,19 +26,11 @@ int main(int ac, char **av){
 		return 0;
 	}
 	else{
-		std::fstream in_file(av[1]);
-		if (!in_file.is_open()){
-			std::cout << "Error: Invalid file" << std::endl;
-			return 0;
+		try{
+			BTC _btc(av[1]);
 		}
-		else{
-			BTC _btc;
-			std::string	FileContent;
-			getline(in_file, FileContent);
-			//check for first line (date | value)
-			while(getline(in_file, FileContent))
-				_btc.parseInput(FileContent);
-			in_file.close();
+		catch(const char *msg){
+			std::cout << msg << std::endl;
 		}
 	}
 }
