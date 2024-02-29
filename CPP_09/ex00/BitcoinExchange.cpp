@@ -7,14 +7,36 @@ BTC::BTC(BTC const &copy){
 	*this = copy;
 }
 
-void print(std::map<std::string, std::string> &_map, std::string _date, std::string _value){
-	// std::map<std::string, std::string>::iterator it = _map.find(_date);
+float	Calculate(std::string _value, std::string _second){
+	float _result = std::atof(_value.c_str()) * std::atof(_second.c_str());
+	if (_result < 0)
+		throw "Error: Not a Positive Number";
+	else if (_result > 1000)
+		throw "Error: Too Large Number";
+	return _result;
+}
 
-	std::cout << "map[_date] : " << _map[_date] << " value: " << _value << std::endl;
-	// if (it == _map.end()){
-	// 	--it;
-		// std::cout << _date << " => " << "= " << std::atof(it->second.c_str()) * std::atof(_value.c_str()) << std::endl;
-	// }
+void print(std::map<std::string, std::string> &_map, std::string _date, std::string _value) {
+    std::map<std::string, std::string>::iterator it = _map.find(_date);
+	try{
+		if (it != _map.end()){
+			float CalculatedVal = Calculate(_value, it->second);
+			std::cout << _date << " => " << _value << " = " << CalculatedVal << std::endl;
+		}
+		else{
+			it = _map.lower_bound(_date);
+			if (it == _map.begin())
+				return ;
+			else{
+				--it;
+				float CalculatedVal = Calculate(_value, it->second);
+				std::cout << _date << " => " << _value << " = " << CalculatedVal << std::endl;
+			}
+		}
+	}
+	catch(const char *msg){
+		std::cout << msg << std::endl;
+	}
 }
 
 BTC::BTC(const char* in_file){
