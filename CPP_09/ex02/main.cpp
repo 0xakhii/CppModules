@@ -16,10 +16,10 @@ int main(int ac, char **av){
 					return 1;
 				}
 				vectContainer.push_back(std::atoi(av[i]));
-				deqContainer.push_back(std::atoi(av[1]));
+				deqContainer.push_back(std::atoi(av[i]));
 			}
 		}
-		PmergeMe	vect(vectContainer, ac - 1);
-		PmergeMe	deq(deqContainer, ac - 1);
+		Print(vectContainer, ac - 1);
+		Print(deqContainer, ac - 1);
 	}
 }
