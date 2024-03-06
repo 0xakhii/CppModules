@@ -11,14 +11,11 @@ float	Calculate(std::string _value, std::string _second){
 	float _result = std::atof(_value.c_str()) * std::atof(_second.c_str());
 	if (_result < 0)
 		throw "Error: Not a Positive Number";
-	else if (_result > 1000)
-		throw "Error: Too Large Number";
 	return _result;
 }
 
 void print(std::map<std::string, std::string> &_map, std::string _date, std::string _value) {
     std::map<std::string, std::string>::iterator it = _map.find(_date);
-	try{
 		if (it != _map.end()){
 			float CalculatedVal = Calculate(_value, it->second);
 			std::cout << _date << " => " << _value << " = " << CalculatedVal << std::endl;
@@ -33,10 +30,6 @@ void print(std::map<std::string, std::string> &_map, std::string _date, std::str
 				std::cout << _date << " => " << _value << " = " << CalculatedVal << std::endl;
 			}
 		}
-	}
-	catch(const char *msg){
-		std::cout << msg << std::endl;
-	}
 }
 
 BTC::BTC(const char* in_file){
@@ -56,8 +49,13 @@ BTC::BTC(const char* in_file){
 	if (InputContent != "date | value")
 		throw "Error: Input first line should start with (date | value)";
 	while(std::getline(Input, InputContent)){
-		parseInput(InputContent);
-		print(_map, _date, _value);
+		try{
+			parseInput(InputContent);
+			print(_map, _date, _value);
+		}
+		catch(const char *msg){
+			std::cout << msg << " => " << InputContent << std::endl;
+		}
 	}
 	Input.close();
 }
@@ -75,9 +73,11 @@ BTC::~BTC(){
 }
 
 bool	parseDate(int Year, int Month, int Day){
+	if (Year < 2009 || Year > 2024)
+		return false;
     if (Month < 1 || Month > 12) 
     	return false; 
-    if (Day < 1 || Day > 31) 
+    if (Day < 1 || Day > 31)
     	return false;
     if (Month == 2){
 			if (((Year % 4 == 0)

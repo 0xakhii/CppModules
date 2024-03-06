@@ -1,23 +1,21 @@
 #include "BitcoinExchange.hpp"
 
 void	BTC::parseInput(std::string InputContent){
-	_date = InputContent.substr(0, InputContent.find("|"));
+	_date = InputContent.substr(0, InputContent.find("|") - 1);
 	int	Year, Month, Day;
-	sscanf(_date.c_str(), "%d-%d-%d", &Year, &Month, &Day);
-	if (!parseDate(Year, Month, Day)){
-		std::cout << "Error: bad input => " << _date << std::endl;
-		return ;
+	for(size_t i = 0; i < _date.length(); i++){
+		if (std::isspace(_date[i]))
+			throw "Error: bad input";
 	}
+	sscanf(_date.c_str(), "%d-%d-%d", &Year, &Month, &Day);
+	if (!parseDate(Year, Month, Day))
+		throw  "Error: bad input";
 	_value = InputContent.substr(InputContent.find("|") + 1, InputContent.length());
 	float Val = std::atof(_value.c_str());
-	if (Val < 0){
-		std::cout << "Error: Not a Positive Number" << std::endl;
-		return ;
-	}
-	else if (Val > 1000){
-		std::cout << "Error: Too Large Number" << std::endl;
-		return ;
-	}
+	if (Val < 0)
+		throw "Error: Not a Positive Number";
+	else if (Val > 1000)
+		throw "Error: Too Large Number";
 }
 
 int main(int ac, char **av){
