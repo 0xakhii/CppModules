@@ -19,7 +19,7 @@ int main(int ac, char **av){
 				deqContainer.push_back(std::atoi(av[i]));
 			}
 		}
-		Print(vectContainer, ac - 1);
-		Print(deqContainer, ac - 1);
+		fordJohnsonSortvect(vectContainer, 1);
+		fordJohnsonSortdeq(deqContainer, 1);
 	}
 }

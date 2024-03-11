@@ -6,6 +6,7 @@
 #include <vector>
 #include <cstdlib>
 #include <map>
+#include <cerrno>
 
 class BTC{
 	private:

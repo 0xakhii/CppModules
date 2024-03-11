@@ -11,7 +11,10 @@ void	BTC::parseInput(std::string InputContent){
 	if (!parseDate(Year, Month, Day))
 		throw  "Error: bad input";
 	_value = InputContent.substr(InputContent.find("|") + 1, InputContent.length());
-	float Val = std::atof(_value.c_str());
+	char* endptr;
+    float Val = std::strtof(_value.c_str(), &endptr);
+	if (endptr == _value || *endptr != '\0')
+		throw "Error: Invalid Value";
 	if (Val < 0)
 		throw "Error: Not a Positive Number";
 	else if (Val > 1000)
