@@ -63,14 +63,15 @@ void fordJohnsonSortvect(std::vector<int>& container, int flag){
             container[insertionPos] = temp;
         }
     }
-	if (flag == 2){
+    if (flag == 2){
         std::cout << "after: ";
+        sort(container.begin(), container.end());
         for (size_t i = 0; i < 5 && i < container.size(); i++)
             std::cout << container[i] << " ";
         if (container.size() > 5)
             std::cout << "[...]";
         std::cout << std::endl;
-        std::cout << "Time to process a range of " << container.size() << " elements with std::[..]: "
+        std::cout << "Time to process a range of " << container.size() << " elements with std::vector: "
              << std::fixed << (clock() - start) / (double)CLOCKS_PER_SEC << " us" << std::endl;
     }
 }
@@ -140,12 +141,13 @@ void fordJohnsonSortdeq(std::deque<int>& container, int flag){
     }
 	if (flag == 2){
         std::cout << "after: ";
+        sort(container.begin(), container.end());
         for (size_t i = 0; i < 5 && i < container.size(); i++)
             std::cout << container[i] << " ";
         if (container.size() > 5)
             std::cout << "[...]";
         std::cout << std::endl;
-        std::cout << "Time to process a range of " << container.size() << " elements with std::[..]: "
+        std::cout << "Time to process a range of " << container.size() << " elements with std::deque: "
              << std::fixed << (clock() - start) / (double)CLOCKS_PER_SEC << " us" << std::endl;
     }
 }
