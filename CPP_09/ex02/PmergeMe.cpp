@@ -22,19 +22,15 @@ void fordJohnsonSortvect(std::vector<int>& container, int low, int high){
 void	sortvect(std::vector<int>& Container, int size){
 	clock_t start = clock();
 	std::cout << "before: ";
-	for(size_t i = 0; i < 5 && i < Container.size(); i++)
+	for(int i = 0; i < size; i++)
 		std::cout << Container[i] << " ";
-	if (Container.size() > 5)
-		std::cout << "[...]";
 	std::cout << std::endl;
 	fordJohnsonSortvect(Container, 0, size - 1);
 	std::cout << "after: ";
-	for(size_t i = 0; i < 5 && i < Container.size(); i++)
+	for(int i = 0;  i < size; i++)
 		std::cout << Container[i] << " ";
-	if (Container.size() > 5)
-		std::cout << "[...]";
 	std::cout << std::endl;
-	std::cout << "Time to process a range of " << Container.size() << " elements with std::vector: "
+	std::cout << "Time to process a range of " << size << " elements with std::vector: "
         << std::fixed << (clock() - start) / (double)CLOCKS_PER_SEC << " us" << std::endl;
 }
 
@@ -60,18 +56,14 @@ void fordJohnsonSortdeq(std::deque<int>& container, int low, int high){
 void	sortdeq(std::deque<int>& Container, int size){
 	clock_t start = clock();
 	std::cout << "before: ";
-	for(size_t i = 0; i < 5 && i < Container.size(); i++)
+	for(int i = 0; i < size; i++)
 		std::cout << Container[i] << " ";
-	if (Container.size() > 5)
-		std::cout << "[...]";
 	std::cout << std::endl;
 	fordJohnsonSortdeq(Container, 0, size - 1);
 	std::cout << "after: ";
-	for(size_t i = 0; i < 5 && i < Container.size(); i++)
+	for(int i = 0; i < size; i++)
 		std::cout << Container[i] << " ";
-	if (Container.size() > 5)
-		std::cout << "[...]";
 	std::cout << std::endl;
-	std::cout << "Time to process a range of " << Container.size() << " elements with std::deque: "
+	std::cout << "Time to process a range of " << size << " elements with std::deque: "
         << std::fixed << (clock() - start) / (double)CLOCKS_PER_SEC << " us" << std::endl;
 }
